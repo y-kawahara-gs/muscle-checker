@@ -1,6 +1,8 @@
 {
   "name": "muscle-checker",
-  "bin": "./index.js",
+  "bin": {
+    "muscle-checker": "index.js"
+  },
   "version": "1.0.0",
   "type": "module",
   "description": "A package to check your muscles and body numerically",
