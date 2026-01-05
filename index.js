@@ -4,16 +4,20 @@ import enquirer from "enquirer";
 
 const { prompt } = enquirer;
 
+const CHOICE_RM = "最大拳上重量（RM値）",
+  CHOICE_TRAINING = "適正トレーニング",
+  CHOICE_BMI_FFMI = "BMI/FFMI";
+
 async function main() {
   const process = await decide_process();
   switch (process.answer) {
-    case "最大拳上重量（RM値）":
+    case CHOICE_RM:
       await printRm();
       break;
-    case "適正トレーニング":
+    case CHOICE_TRAINING:
       await printRecommendedWeight();
       break;
-    case "BMI/FFMI":
+    case CHOICE_BMI_FFMI:
       await printBmi();
       break;
   }
@@ -24,7 +28,7 @@ async function decide_process() {
     type: "select",
     name: "answer",
     message: "どれにしますか？",
-    choices: ["最大拳上重量（RM値）", "適正トレーニング", "BMI/FFMI"],
+    choices: [CHOICE_RM, CHOICE_TRAINING, CHOICE_BMI_FFMI],
   };
   return await prompt(processQuestion);
 }
