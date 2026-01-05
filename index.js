@@ -5,7 +5,7 @@ import enquirer from "enquirer";
 const { prompt } = enquirer;
 
 async function main() {
-  let process = await decide_process();
+  const process = await decide_process();
   switch (process.answer) {
     case "最大拳上重量（RM値）":
       await printRm();
@@ -111,7 +111,7 @@ function caluculateWeight(rm, times) {
 }
 
 function caluculateBmi(height, bodyWeight, fatPercent = null) {
-  var BmiFfmi = {};
+  const BmiFfmi = {};
   const heightSquared = (height * 0.01) ** 2;
   const bmi = bodyWeight / heightSquared;
   const lbm = bodyWeight * (1 - fatPercent * 0.01);
