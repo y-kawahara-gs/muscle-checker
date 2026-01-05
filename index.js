@@ -8,6 +8,8 @@ const CHOICE_RM = "最大拳上重量（RM値）",
   CHOICE_TRAINING = "適正トレーニング",
   CHOICE_BMI_FFMI = "BMI/FFMI";
 
+main();
+
 async function main() {
   const process = await chooseProcess();
   switch (process.answer) {
@@ -126,5 +128,3 @@ function caluculateBmi(height, bodyWeight, fatPercent = null) {
 function roundOff(value, base) {
   return Math.round(value * base) / base;
 }
-
-main();
