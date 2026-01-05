@@ -36,23 +36,23 @@ async function chooseProcess() {
 async function printRm() {
   console.log("RM測定");
   const weight = await askNumber("重量を入力してください。(単位 ：kg)");
-  const times = await selectTimes("回数を入力してください。(数字のみ)");
-  const rm = await caluculateRm(weight.answer, times.answer);
+  const count = await selectTimes("回数を入力してください。(数字のみ)");
+  const rm = await caluculateRm(weight.answer, count.answer);
   console.log("--結果--");
   console.log(`重量：${weight.answer}kg`);
-  console.log(`回数：${times.answer}回`);
+  console.log(`回数：${count.answer}回`);
   console.log(`あなたの最大拳上重量は${rm}kgです。`);
 }
 
 async function printRecommendedWeight() {
   const rm = await askNumber("最大拳上重量を入力してください。( 単位：kg)");
-  const times = await selectTimes(
+  const count = await selectTimes(
     "希望する回数を入力してくださ い。(数字のみ)",
   );
-  const weight = await caluculateWeight(rm.answer, times.answer);
+  const weight = await caluculateWeight(rm.answer, count.answer);
   console.log("--結果--");
   console.log(
-    `${times.answer}レップのトレーニングには${weight}kgの重量が おすすめです。`,
+    `${count.answer}レップのトレーニングには${weight}kgの重量が おすすめです。`,
   );
 }
 
@@ -92,25 +92,25 @@ async function askNumber(message, option = null) {
 }
 
 async function selectTimes(message) {
-  const timesQuestion = {
+  const countQuestion = {
     type: "select",
     name: "answer",
     message,
     choices: [...Array(10)].map((_, i) => i + 1).map(String),
-    result(time) {
-      return Number(time);
+    result(count) {
+      return Number(count);
     },
   };
-  return await prompt(timesQuestion);
+  return await prompt(countQuestion);
 }
 
-function caluculateRm(weight, times) {
-  const rm = weight * (times / 40 + 1);
+function caluculateRm(weight, count) {
+  const rm = weight * (count / 40 + 1);
   return roundOff(rm, 100);
 }
 
-function caluculateWeight(rm, times) {
-  const weight = rm / (times / 40 + 1);
+function caluculateWeight(rm, count) {
+  const weight = rm / (count / 40 + 1);
   return roundOff(weight, 100);
 }
 
