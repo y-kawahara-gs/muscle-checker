@@ -3,7 +3,7 @@
   "bin": {
     "muscle-checker": "index.js"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "A package to check your muscles and body numerically",
   "main": "index.js",
