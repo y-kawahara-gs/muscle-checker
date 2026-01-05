@@ -9,7 +9,7 @@ const CHOICE_RM = "最大拳上重量（RM値）",
   CHOICE_BMI_FFMI = "BMI/FFMI";
 
 async function main() {
-  const process = await decide_process();
+  const process = await chooseProcess();
   switch (process.answer) {
     case CHOICE_RM:
       await printRm();
@@ -23,7 +23,7 @@ async function main() {
   }
 }
 
-async function decide_process() {
+async function chooseProcess() {
   const processQuestion = {
     type: "select",
     name: "answer",
@@ -64,7 +64,7 @@ async function printBmi() {
     "体脂肪率は分かりますか？(分からなければEnter)",
     true,
   );
-  const bmiffmi = await caluculateBmi(
+  const bmiFfmi = await caluculateBmi(
     height.answer,
     bodyWeight.answer,
     fatPercent.answer,
@@ -72,8 +72,8 @@ async function printBmi() {
   console.log("--結果--");
   console.log(`身長：${height.answer}cm`);
   console.log(`体重：${bodyWeight.answer}kg`);
-  console.log(`あなたのBMIは${bmiffmi.bmi}です。`);
-  console.log(`あなたのFFMIは${bmiffmi.ffmi}です。`);
+  console.log(`あなたのBMIは${bmiFfmi.bmi}です。`);
+  console.log(`あなたのFFMIは${bmiFfmi.ffmi}です。`);
 }
 
 async function askNumber(message, option = null) {
