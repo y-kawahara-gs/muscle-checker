@@ -7,6 +7,7 @@ const { prompt } = enquirer;
 const CHOICE_RM = "最大拳上重量（RM値）"
 const CHOICE_TRAINING = "適正トレーニング"
 const CHOICE_BMI_FFMI = "BMI/FFMI"
+const RM_COEFFICIENT = 0.025
 
 main();
 
@@ -105,7 +106,7 @@ async function selectCount(message) {
 }
 
 function caluculateRm(weight, count) {
-  const rm = weight * (count / 40 + 1);
+  const rm = weight * (count * RM_COEFFICIENT + 1);
   return roundOff(rm, 100);
 }
 
