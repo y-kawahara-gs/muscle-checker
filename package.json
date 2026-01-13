@@ -1,0 +1,34 @@
+{
+  "name": "muscle-checker",
+  "bin": {
+    "muscle-checker": "index.js"
+  },
+  "version": "1.0.2",
+  "type": "module",
+  "description": "A package to check your muscles and body numerically",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix": "prettier --write . && eslint --fix .",
+    "lint": "prettier --check . && eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y-kawahara-gs/muscle-checker.git"
+  },
+  "keywords": [
+    "muscle"
+  ],
+  "author": "Yukichi Kawahara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/y-kawahara-gs/muscle-checker/issues"
+  },
+  "homepage": "https://github.com/y-kawahara-gs/muscle-checker#readme",
+  "dependencies": {
+    "enquirer": "^2.4.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.7.4"
+  }
+}
