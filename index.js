@@ -38,7 +38,7 @@ async function chooseProcess() {
 async function printRm() {
   console.log("RM測定");
   const weight = await askNumber("重量を入力してください。(単位：kg)");
-  const count = await selectTimes("回数を入力してください。(数字のみ)");
+  const count = await selectCount("回数を入力してください。(数字のみ)");
   const rm = await caluculateRm(weight.answer, count.answer);
   console.log("--結果--");
   console.log(`重量：${weight.answer}kg`);
@@ -48,7 +48,7 @@ async function printRm() {
 
 async function printRecommendedWeight() {
   const rm = await askNumber("最大拳上重量を入力してください。(単位：kg)");
-  const count = await selectTimes("希望する回数を入力してください。(数字のみ)");
+  const count = await selectCount("希望する回数を入力してください。(数字のみ)");
   const weight = await caluculateWeight(rm.answer, count.answer);
   console.log("--結果--");
   console.log(
@@ -91,7 +91,7 @@ async function askNumber(message, option = null) {
   return await prompt(quetion);
 }
 
-async function selectTimes(message) {
+async function selectCount(message) {
   const countQuestion = {
     type: "select",
     name: "answer",
