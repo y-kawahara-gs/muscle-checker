@@ -37,7 +37,7 @@ async function chooseProcess() {
 
 async function printRm() {
   console.log("RM測定");
-  const weight = await askNumber("重量を入力してください。(単位：kg)");
+  const weight = await askValue("重量を入力してください。(単位：kg)");
   const count = await selectCount("回数を入力してください。(数字のみ)");
   const rm = await caluculateRm(weight.answer, count.answer);
   console.log("--結果--");
@@ -47,7 +47,7 @@ async function printRm() {
 }
 
 async function printRecommendedWeight() {
-  const rm = await askNumber("最大拳上重量を入力してください。(単位：kg)");
+  const rm = await askValue("最大拳上重量を入力してください。(単位：kg)");
   const count = await selectCount("希望する回数を入力してください。(数字のみ)");
   const weight = await caluculateWeight(rm.answer, count.answer);
   console.log("--結果--");
@@ -58,9 +58,9 @@ async function printRecommendedWeight() {
 
 async function printBmi() {
   console.log("BMI測定");
-  const height = await askNumber("身長を入力してください。(単位:cm)");
-  const bodyWeight = await askNumber("体重を入力してください。(単位:kg)");
-  const fatPercent = await askNumber(
+  const height = await askValue("身長を入力してください。(単位:cm)");
+  const bodyWeight = await askValue("体重を入力してください。(単位:kg)");
+  const fatPercent = await askValue(
     "体脂肪率は分かりますか？(分からなければEnter)",
     true,
   );
@@ -76,13 +76,13 @@ async function printBmi() {
   console.log(`あなたのFFMIは${bmiFfmi.ffmi}です。`);
 }
 
-async function askNumber(message, option = null) {
+async function askValue(message, optional = false) {
   const quetion = {
     type: "input",
     name: "answer",
     message,
     validate: (value) => {
-      if (option && !value) return true;
+      if (optional && !value) return true;
       if (isNaN(value) || value <= 0)
         return "正の数字を半角入力してください！！";
       return true;
