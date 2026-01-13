@@ -115,14 +115,14 @@ function caluculateWeight(rm, count) {
 }
 
 function caluculateBmi(height, bodyWeight, fatPercent = null) {
-  const BmiFfmi = {};
+  const bmiFfmi = {};
   const heightSquared = (height * 0.01) ** 2;
   const bmi = bodyWeight / heightSquared;
   const lbm = bodyWeight * (1 - fatPercent * 0.01);
   const ffmi = lbm / heightSquared;
-  BmiFfmi.bmi = roundOff(bmi, 10);
-  BmiFfmi.ffmi = fatPercent ? roundOff(ffmi, 10) : "測定不能";
-  return BmiFfmi;
+  bmiFfmi.bmi = roundOff(bmi, 10);
+  bmiFfmi.ffmi = fatPercent ? roundOff(ffmi, 10) : "測定不能";
+  return bmiFfmi;
 }
 
 function roundOff(value, base) {
