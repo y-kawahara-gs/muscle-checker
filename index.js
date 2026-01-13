@@ -4,9 +4,9 @@ import enquirer from "enquirer";
 
 const { prompt } = enquirer;
 
-const CHOICE_RM = "最大拳上重量（RM値）",
-  CHOICE_TRAINING = "適正トレーニング",
-  CHOICE_BMI_FFMI = "BMI/FFMI";
+const CHOICE_RM = "最大拳上重量（RM値）"
+const CHOICE_TRAINING = "適正トレーニング"
+const CHOICE_BMI_FFMI = "BMI/FFMI"
 
 main();
 
